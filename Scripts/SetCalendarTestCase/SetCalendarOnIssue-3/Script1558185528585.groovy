@@ -13,20 +13,29 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-WebUI.openBrowser('https://www.booking.com/')
+WebUI.openBrowser('https://www.nh-hotels.com/b2b-ccg/84d28ba8772bf6fe610060b92eba4cf9')
 
 WebUI.maximizeWindow()
 
 WebUI.delay(5)
 
-WebUI.click(findTestObject('Booking/startDate'))
+WebUI.click(findTestObject('Issue-3/checkIn'))
 
 WebUI.delay(2)
 
-CustomKeywords.'com.katalon.plugin.keyword.calendar.SetDateCalendarKeyword.setDate'(findTestObject('Booking/calendar'), 10, 6, 2019, 2000, FailureHandling.STOP_ON_FAILURE)
+CustomKeywords.'com.katalon.plugin.keyword.calendar.SetDateCalendarKeyword.setDate'(findTestObject('Issue-3/checkIn-calendar'), 
+    10, 6, 2019, 2000, FailureHandling.STOP_ON_FAILURE)
 
-CustomKeywords.'com.katalon.plugin.keyword.calendar.SetDateCalendarKeyword.setDate'(findTestObject('Booking/calendar'), 14, 6, 2019, 2000, FailureHandling.STOP_ON_FAILURE)
+WebUI.delay(2)
+
+WebUI.click(findTestObject('Issue-3/checkOut'))
+
+WebUI.delay(2)
+
+CustomKeywords.'com.katalon.plugin.keyword.calendar.SetDateCalendarKeyword.setDate'(findTestObject('Issue-3/checkOut-calendar'), 
+    14, 6, 2019, 2000, FailureHandling.STOP_ON_FAILURE)
 
 WebUI.delay(15)
 
 WebUI.closeBrowser()
+
